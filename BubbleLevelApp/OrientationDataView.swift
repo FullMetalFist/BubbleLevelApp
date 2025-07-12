@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrientationDataView: View {
-    @EnvironmentObject var detector: MotionDetector
+    @Environment(MotionDetector.self) var detector
     
     var rollString: String {
         detector.roll.describeAsFixedLengthString()
@@ -29,10 +29,10 @@ struct OrientationDataView: View {
 }
 
 struct OrientationDataView_Previews: PreviewProvider {
-    @StateObject static private var motionDetector = MotionDetector(updateInterval: 0.01).started()
+    @State static private var motionDetector = MotionDetector(updateInterval: 0.01).started()
     
     static var previews: some View {
         OrientationDataView()
-            .environmentObject(motionDetector)
+            .environment(motionDetector)
     }
 }

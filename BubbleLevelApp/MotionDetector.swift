@@ -8,15 +8,16 @@
 import CoreMotion
 import UIKit
 
-class MotionDetector: ObservableObject {
+@Observable
+class MotionDetector {
     private let motionManager = CMMotionManager()
     
     private var timer = Timer()
     private var updateInterval: TimeInterval
     
-    @Published var pitch: Double = 0
-    @Published var roll: Double = 0
-    @Published var zAcceleration: Double = 0
+    var pitch: Double = 0
+    var roll: Double = 0
+    var zAcceleration: Double = 0
     
     var onUpdateClosure: (() -> Void) = {}
     

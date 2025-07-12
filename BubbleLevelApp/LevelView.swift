@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LevelView: View {
-    @EnvironmentObject var motionDetector: MotionDetector
+    @Environment(MotionDetector.self) var motionDetector
     
     var body: some View {
         VStack {
@@ -26,10 +26,10 @@ struct LevelView: View {
 }
 
 struct LevelView_Previews: PreviewProvider {
-    @StateObject static var motionDetector = MotionDetector(updateInterval: 0.01).started()
+    @State static var motionDetector = MotionDetector(updateInterval: 0.01).started()
     
     static var previews: some View {
         LevelView()
-            .environmentObject(motionDetector)
+            .environment(motionDetector)
     }
 }
