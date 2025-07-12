@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BubbleLevel: View {
-    @EnvironmentObject var detector: MotionDetector
+    @Environment(MotionDetector.self) var detector
     
     let range = Double.pi
     let levelSize: CGFloat = 300
@@ -66,10 +66,10 @@ struct BubbleLevel: View {
 }
 
 struct BubbleLevel_Previews: PreviewProvider {
-    @StateObject static var motionDetector = MotionDetector(updateInterval: 0.01).started()
+    @State static var motionDetector = MotionDetector(updateInterval: 0.01).started()
     
     static var previews: some View {
         BubbleLevel()
-            .environmentObject(motionDetector)
+            .environment(motionDetector)
     }
 }

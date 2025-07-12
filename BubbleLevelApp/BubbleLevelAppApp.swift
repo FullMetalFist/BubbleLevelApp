@@ -12,7 +12,7 @@ struct BubbleLevelAppApp: App {
     var body: some Scene {
         WindowGroup {
             LevelView()
-                .environmentObject(MotionDetector(updateInterval: 0.01))
+                .environment(MotionDetector(updateInterval: 0.01))
         }
     }
 }
